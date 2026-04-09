@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Year Length Determiner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+      padding-top: 40px;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      width: 250px;
+      padding: 8px;
+      margin: 10px 0;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Year Length Determiner</h2>
+
+  <label for="year1">First Year:</label><br>
+  <input type="number" id="year1">
+
+  <br>
+
+  <label for="year2">Second Year:</label><br>
+  <input type="number" id="year2">
+
+  <br>
+
+  <button onclick="calculateYear()">Determine Length</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+function calculateYear() {
+  var year1 = parseInt(document.getElementById("year1").value);
+  var year2 = parseInt(document.getElementById("year2").value);
+
+  if (isNaN(year1) || isNaN(year2)) {
+    document.getElementById("result").innerText = "Please enter two valid years.";
+    return;
+  }
+
+  var difference = year2 - year1;
+
+  if (difference < 0) {
+    document.getElementById("result").innerText =
+      Math.abs(difference) + " years from " + year1;
+  } else {
+    document.getElementById("result").innerText =
+      difference + " years ago in " + year1;
+  }
+}
+</script>
+
+</body>
+</html>
